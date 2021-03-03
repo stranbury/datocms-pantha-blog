@@ -1,0 +1,66 @@
+{
+  "dataOrder": {
+    "recipient": {
+      "name": "Paulette Jean",
+      "address1": "148-150 avenue jean jaures ",
+      "city": "Pantin",
+      "state_code": "Fr",
+      "state_name": "Ile de france",
+      "country_code": "FR",
+      "zip": "93500"
+    },
+    "shipping": "STANDARD",
+    "status": "draft",
+    "items": [
+      {
+        "external_variant_id": "6003c26b669584",
+        "retail_price": "35.00",
+        "quantity": 1,
+        "files": [
+          {
+            "id": 249558641,
+            "type": "default",
+            "hash": "644e921db899761eec19b384886ee00f",
+            "filename": "Asset-284x.png",
+            "mime_type": "image/png",
+            "size": 74713,
+            "width": 1348,
+            "height": 2059,
+            "dpi": 288,
+            "status": "ok",
+            "url": null,
+            "created": 1603327777,
+            "thumbnail_url": "https://files.cdn.printful.com/files/644/644e921db899761eec19b384886ee00f_thumb.png",
+            "preview_url": "https://files.cdn.printful.com/files/644/644e921db899761eec19b384886ee00f_preview.png",
+            "visible": true
+          },
+          {
+            "id": 280318313,
+            "type": "preview",
+            "url": null,
+            "hash": "76d2824793038489d3b56e609b0a73c7",
+            "filename": "cuffed-beanie-black-6003c268f0b5e.jpg",
+            "mime_type": "image/jpeg",
+            "size": 110159,
+            "width": 1000,
+            "height": 1000,
+            "status": "ok",
+            "created": 1610859115,
+            "thumbnail_url": "https://files.cdn.printful.com/files/76d/76d2824793038489d3b56e609b0a73c7_thumb.png",
+            "preview_url": "https://files.cdn.printful.com/files/76d/76d2824793038489d3b56e609b0a73c7_preview.png",
+            "visible": false
+          }
+        ]
+      }
+    ]
+  },
+  "dataWebhook": {
+    "url": "http://www.example.com/printful/webhook",
+    "types": ["package_shipped", "stock_updated"],
+    "params": {
+      "stock_updated": {
+        "product_ids": [5, 12]
+      }
+    }
+  }
+}
