@@ -1,20 +1,28 @@
-const Joi = require('joi');
-const Printful = require('../lib/printful');
+import Joi from 'joi';
+import { dataOrder, dataWebhook } from '../mock/testData.json';
+import {
+  rawProducts,
+  webhooksSchema,
+  contryCodesSchema,
+} from '../validator/printfulSchema';
+import Printful from '../lib/printful';
 
 
-const { dataOrder, dataWebhook } = require('../mockData/testData.json');
-const { webhooksSchema, contryCodesSchema } = require('../mockData/dataSchema');
+
 
 const printfulClient = new Printful('pau14igl-7xfe-7xs5:b8k3-fl7mwfotabjl');
 const orderID = '';
 
 test('get all raw products ', async () => {
 const products = await printfulClient.getRawProducts();
+const JoiValidation = rawProducts.validate(products);
+expect(JoiValidation.error).toBe(undefined);
 
-  expect(products[0].id).toBe(211704237);
+
 });
 test('get all  products ', async () => {
 const products = await printfulClient.getShopProductsSearch('101');
+console.log(products);
 
   expect(products[0].id).toBe(211704237);
 });

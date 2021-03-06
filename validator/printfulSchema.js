@@ -1,6 +1,13 @@
-const Joi = require('joi');
-
-const contryCodesSchema = Joi.array().items(
+import Joi from "joi";
+export const rawProducts = Joi.array().items(Joi.object().keys({
+  id: Joi.any().id(),
+        external_id: Joi.string(),
+        name: Joi.string(),
+        variants: Joi.number(),
+        synced: Joi.number(),
+        thumbnail_url:  Joi.string().uri()
+}))
+export const contryCodesSchema = Joi.array().items(
   Joi.object().keys({
     code: Joi.string(),
     name: Joi.string(),
@@ -14,7 +21,7 @@ const contryCodesSchema = Joi.array().items(
       .allow(null),
   }),
 );
-const webhooksSchema = Joi.object().keys({
+export const webhooksSchema = Joi.object().keys({
   url: Joi.string().allow(null),
   types: Joi.array().items(
     Joi.string().valid(
@@ -33,7 +40,7 @@ const webhooksSchema = Joi.object().keys({
   params: Joi.any().allow(null),
 });
 
-const orderSchema = Joi.object({
+export const orderSchema = Joi.object({
   external_id: Joi.string(),
   shipping: Joi.string(),
   status: Joi.string().required(),
@@ -117,8 +124,4 @@ const orderSchema = Joi.object({
     logo_url: Joi.string(),
   }),
 });
-module.exports = {
-  contryCodesSchema,
-  webhooksSchema,
-  orderSchema,
-};
+

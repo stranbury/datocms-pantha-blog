@@ -3,7 +3,9 @@
       "baseUrl": ".",
       "paths": {
         "@Components/*": ["components/*"],
-        "@Tools/*": ["tools/*"]
+        "@Mock/*": ["mock/*"],
+        "@Validator/*": ["validator/*"], 
+        "@Lib/*": ["lib/*"]
       }
     }
   }
