@@ -7,6 +7,7 @@ export const rawProducts = Joi.array().items(Joi.object().keys({
         synced: Joi.number(),
         thumbnail_url:  Joi.string().uri()
 }))
+
 export const contryCodesSchema = Joi.array().items(
   Joi.object().keys({
     code: Joi.string(),

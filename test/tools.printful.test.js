@@ -1,47 +1,49 @@
-import Joi from 'joi';
+import Printful from '../lib/printful';
+
 import { dataOrder, dataWebhook } from '../mock/testData.json';
 import {
   rawProducts,
   webhooksSchema,
   contryCodesSchema,
 } from '../validator/printfulSchema';
-import Printful from '../lib/printful';
-
-
 
 
 const printfulClient = new Printful('pau14igl-7xfe-7xs5:b8k3-fl7mwfotabjl');
 const orderID = '';
+
 
 test('get all raw products ', async () => {
 const products = await printfulClient.getRawProducts();
 const JoiValidation = rawProducts.validate(products);
 expect(JoiValidation.error).toBe(undefined);
 
-
 });
 test('get all  products ', async () => {
 const products = await printfulClient.getShopProductsSearch('101');
-console.log(products);
+console.log(products[0]);
+
+
 
   expect(products[0].id).toBe(211704237);
 });
 test('get raw products by searching 101', async () => {
 const products = await printfulClient.getRawProductsSearch('101');
+const JoiValidation = rawProducts.validate(products);
+expect(JoiValidation.error).toBe(undefined);
 
-  expect(products[0].id).toBe(211704237);
+
+
 });
+
 test('get raw variants for product  211704237', async () => {
 const products = await printfulClient.getRawProductVariants('211704237');
+console.log(products);
+
 
   expect(products[0].sync_product_id).toBe(211704237);
 });
 
-test('get order with the status draft', async () => {
-const orders = await printfulClient.getAllOrderByStatus('draft');
 
-  expect(orders.length).toBe(0);
-});
 test('estimate new order  for the product ', async () => {
 const estimation = await printfulClient.estimateNewOrder(dataOrder);
 
@@ -54,6 +56,13 @@ orderID = order.id;
 expect(order.status).toBe('draft');
 
 });
+test('get order with the status draft', async () => {
+  const orders = await printfulClient.getAllOrderByStatus('draft');
+  console.log(orders);
+
+  expect(orders.length).toBe(0);
+});
+
 test(`get order value ${orderID}`, async () => {
 const order = await printfulClient.getOrder(orderID);
 
