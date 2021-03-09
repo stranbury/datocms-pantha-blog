@@ -69,13 +69,6 @@ test('get order with the status draft', async () => {
   expect(JoiValidation.error).toBe(undefined);
 });
 
-
-
-
-
-
-
-
 test(`get order value ${orderID}`, async () => {
   console.log('Identifiant :', orderID)
 const order = await printfulClient.getOrder(orderID);
