@@ -62,5 +62,17 @@
         "product_ids": [5, 12]
       }
     }
+  }, 
+  "mockupGeneratorData":{
+    "id": "219583230",
+    "taskData": {
+      "variant_ids": [],
+      "format":  "png",
+      "width": 1000,
+      "product_options": [],
+      "option_groups": [],
+      "options": []
+    }
+
   }
 }

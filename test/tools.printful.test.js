@@ -107,3 +107,8 @@ test("delete  webhooks endpoint", async () => {
   expect(JoiValidation.error).toBe(undefined);
 });
 
+//Mockups 
+test("Create a mockup generation task ", async ()=>{
+  
+
+})
