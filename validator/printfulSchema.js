@@ -234,4 +234,46 @@ export const estimationOrder = Joi.object({
         out_of_stock: Joi.boolean()
       })
 
+const mockupFilesTask = Joi.object({
+  placement: Joi.string(),
+  image_url: Joi.string(),
+  position: Joi.object({
+    area_width: Joi.number(),
+    area_height: Joi.number(),
+    width: Joi.number(),
+    height: Joi.number(),
+    top: Joi.number(),
+    left: Joi.number(),
+  }),
+});
+
+export const taskDataSchema = Joi.object({
+  variant_ids: Joi.array().items(Joi.any().id()),
+  format: Joi.string().valid('jpg', 'png'),
+  width: Joi.number().min(50).max(1000),
+  product_options: Joi.array().items(Joi.string()),
+  option_groups: Joi.array().items(Joi.string()),
+  options: Joi.array().items(Joi.string()),
+  files: mockupFilesTask,
+});
+
+export const mockupGeneratorTaskSchema = Joi.object({
+  task_key: Joi.string(),
+  status: Joi.string().valid('pending', 'completed', 'failed'),
+  error: Joi.string(),
+  mockups: Joi.object({
+    placement: Joi.string(),
+    variant_ids: Joi.array().items(Joi.any().id()),
+    mockup_url: Joi.string(),
+    extra: Joi.array().items(
+      Joi.object({
+        title: Joi.string(),
+        url: Joi.string(),
+        option: Joi.string(),
+        option_group: Joi.string(),
+      }),
+    ),
+  }),
+});
+
 
